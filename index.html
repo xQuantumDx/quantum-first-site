@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantum First - Pioneering the future of quantum computing">
+    <title>Quantum First | The Future of Computing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background canvas for particle animation -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" aria-label="Quantum First Home">
+                <svg class="logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                    <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="16" cy="16" r="8" fill="currentColor"/>
+                    <circle cx="16" cy="16" r="3" fill="#0a0a0a"/>
+                </svg>
+                <span class="logo-text">Quantum First</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#technology" class="nav-link">Technology</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link btn btn-ghost">Get Started</a>
+            </div>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" role="banner">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge" aria-live="polite">
+                    <span class="badge-dot" aria-hidden="true"></span>
+                    <span>Quantum Advantage Achieved</span>
+                </div>
+                <h1 class="hero-title">
+                    Computing, <br>
+                    <span class="gradient-text">Reimagined</span>
+                </h1>
+                <p class="hero-description">
+                    Harness the power of quantum mechanics to solve problems 
+                    classical computers never could. From drug discovery to 
+                    financial modeling — the quantum era starts here.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Start Building</span>
+                        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#technology" class="btn btn-secondary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <polygon points="23 7 16 12 23 17 23 7"/>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                        </svg>
+                        <span>Watch Demo</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value" data-count="50">0</span>
+                        <span class="stat-label">Qubits</span>
+                    </div>
+                    <div class="stat-divider" aria-hidden="true"></div>
+                    <div class="stat">
+                        <span class="stat-value" data-count="99.9">0</span>
+                        <span class="stat-label">Fidelity</span>
+                    </div>
+                    <div class="stat-divider" aria-hidden="true"></div>
+                    <div class="stat">
+                        <span class="stat-value" data-count="10">0</span>
+                        <span class="stat-label">Microseconds</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="quantum-sphere">
+                    <div class="sphere-core"></div>
+                    <div class="sphere-ring ring-1"></div>
+                    <div class="sphere-ring ring-2"></div>
+                    <div class="sphere-ring ring-3"></div>
+                    <div class="sphere-particles" id="sphere-particles"></div>
+                </div>
+                <div class="floating-cards">
+                    <div class="float-card card-1">
+                        <span class="card-icon">⚛</span>
+                        <span class="card-text">Superposition</span>
+                    </div>
+                    <div class="float-card card-2">
+                        <span class="card-icon">🔗</span>
+                        <span class="card-text">Entanglement</span>
+                    </div>
+                    <div class="float-card card-3">
+                        <span class="card-icon">📐</span>
+                        <span class="card-text">Interference</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features" aria-labelledby="features-heading">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">Capabilities</span>
+                <h2 id="features-heading" class="section-title">Why Quantum First?</h2>
+                <p class="section-description">
+                    Our platform combines cutting-edge hardware with intuitive software 
+                    to make quantum computing accessible to every developer.
+                </p>
+            </header>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Quantum SDK</h3>
+                    <p class="feature-description">
+                        Write quantum algorithms in Python, Rust, or TypeScript. 
+                        Our SDK abstracts hardware complexity while giving you full control.
+                    </p>
+                    <a href="#" class="feature-link" aria-label="Learn more about Quantum SDK">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M8 21h8M12 17v4"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Cloud Access</h3>
+                    <p class="feature-description">
+                        Run circuits on real quantum processors via our global cloud 
+                        infrastructure. No hardware maintenance, just results.
+                    </p>
+                    <a href="#" class="feature-link" aria-label="Learn more about Cloud Access">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Real-time Simulation</h3>
+                    <p class="feature-description">
+                        Test and debug on our high-performance simulator with 
+                        noise modeling before deploying to quantum hardware.
+                    </p>
+                    <a href="#" class="feature-link" aria-label="Learn more about Real-time Simulation">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Collaborative Workspaces</h3>
+                    <p class="feature-description">
+                        Share circuits, review results, and publish findings with 
+                        built-in version control and team collaboration tools.
+                    </p>
+                    <a href="#" class="feature-link" aria-label="Learn more about Collaborative Workspaces">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Enterprise Security</h3>
+                    <p class="feature-description">
+                        SOC 2 Type II certified with end-to-end encryption, 
+                        role-based access, and audit logs for compliance.
+                    </p>
+                    <a href="#" class="feature-link" aria-label="Learn more about Enterprise Security">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Hybrid Workflows</h3>
+                    <p class="feature-description">
+                        Seamlessly combine classical and quantum compute. 
+                        Our orchestrator handles the complexity automatically.
+                    </p>
+                    <a href="#" class="feature-link" aria-label="Learn more about Hybrid Workflows">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="technology" aria-labelledby="tech-heading">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">Technology</span>
+                <h2 id="tech-heading" class="section-title">Under the Hood</h2>
+                <p class="section-description">
+                    Built on breakthrough research in superconducting qubits, 
+                    error correction, and quantum control systems.
+                </p>
+            </header>
+            <div class="tech-showcase">
+                <div class="tech-visual" aria-hidden="true">
+                    <div class="chip-display">
+                        <div class="chip-svg">
+                            <svg viewBox="0 0 300 300" class="quantum-chip">
+                                <!-- Chip substrate -->
+                                <rect x="25" y="25" width="250" height="250" rx="20" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+                                <!-- Qubit grid -->
+                                <g class="qubit-grid" stroke="#58a6ff" stroke-width="1.5" fill="none">
+                                    <!-- Row 1 -->
+                                    <circle cx="75" cy="75" r="20" class="qubit" data-index="0"/>
+                                    <circle cx="150" cy="75" r="20" class="qubit" data-index="1"/>
+                                    <circle cx="225" cy="75" r="20" class="qubit" data-index="2"/>
+                                    <!-- Row 2 -->
+                                    <circle cx="75" cy="150" r="20" class="qubit" data-index="3"/>
+                                    <circle cx="150" cy="150" r="20" class="qubit" data-index="4"/>
+                                    <circle cx="225" cy="150" r="20" class="qubit" data-index="5"/>
+                                    <!-- Row 3 -->
+                                    <circle cx="75" cy="225" r="20" class="qubit" data-index="6"/>
+                                    <circle cx="150" cy="225" r="20" class="qubit" data-index="7"/>
+                                    <circle cx="225" cy="225" r="20" class="qubit" data-index="8"/>
+                                </g>
+                                <!-- Couplers -->
+                                <g class="couplers" stroke="#f78166" stroke-width="2" fill="none" stroke-dasharray="4 4">
+                                    <line x1="95" y1="75" x2="130" y2="75"/>
+                                    <line x1="170" y1="75" x2="205" y2="75"/>
+                                    <line x1="95" y1="150" x2="130" y2="150"/>
+                                    <line x1="170" y1="150" x2="205" y2="150"/>
+                                    <line x1="95" y1="225" x2="130" y2="225"/>
+                                    <line x1="170" y1="225" x2="205" y2="225"/>
+                                    <line x1="75" y1="95" x2="75" y2="130"/>
+                                    <line x1="150" y1="95" x2="150" y2="130"/>
+                                    <line x1="225" y1="95" x2="225" y2="130"/>
+                                    <line x1="75" y1="170" x2="75" y2="205"/>
+                                    <line x1="150" y1="170" x2="150" y2="205"/>
+                                    <line x1="225" y1="170" x2="225" y2="205"/>
+                                </g>
+                                <!-- Control lines -->
+                                <g class="control-lines" stroke="#3fb950" stroke-width="1" fill="none">
+                                    <line x1="75" y1="25" x2="75" y2="55"/>
+                                    <line x1="150" y1="25" x2="150" y2="55"/>
+                                    <line x1="225" y1="25" x2="225" y2="55"/>
+                                    <line x1="75" y1="245" x2="75" y2="275"/>
+                                    <line x1="150" y1="245" x2="150" y2="275"/>
+                                    <line x1="225" y1="245" x2="225" y2="275"/>
+                                    <line x1="25" y1="75" x2="55" y2="75"/>
+                                    <line x1="25" y1="150" x2="55" y2="150"/>
+                                    <line x1="25" y1="225" x2="55" y2="225"/>
+                                    <line x1="245" y1="75" x2="275" y2="75"/>
+                                    <line x1="245" y1="150" x2="275" y2="150"/>
+                                    <line x1="245" y1="225" x2="275" y2="225"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="chip-labels">
+                            <span class="chip-label" data-qubit="0">Q0</span>
+                            <span class="chip-label" data-qubit="1">Q1</span>
+                            <span class="chip-label" data-qubit="2">Q2</span>
+                            <span class="chip-label" data-qubit="3">Q3</span>
+                            <span class="chip-label" data-qubit="4">Q4</span>
+                            <span class="chip-label" data-qubit="5">Q5</span>
+                            <span class="chip-label" data-qubit="6">Q6</span>
+                            <span class="chip-label" data-qubit="7">Q7</span>
+                            <span class="chip-label" data-qubit="8">Q8</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-specs">
+                    <div class="spec-category">
+                        <h3 class="spec-category-title">Quantum Processor</h3>
+                        <ul class="spec-list">
+                            <li class="spec-item">
+                                <span class="spec-name">Architecture</span>
+                                <span class="spec-value">Superconducting Transmon</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Qubit Count</span>
+                                <span class="spec-value">50 (Scalable to 1000+)</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Connectivity</span>
+                                <span class="spec-value">All-to-all via Bus Resonator</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Coherence Time (T1)</span>
+                                <span class="spec-value">150 µs</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Coherence Time (T2)</span>
+                                <span class="spec-value">100 µs</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Gate Fidelity (1Q)</span>
+                                <span class="spec-value">99.9%</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Gate Fidelity (2Q)</span>
+                                <span class="spec-value">99.5%</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Readout Fidelity</span>
+                                <span class="spec-value">99.2%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="spec-category">
+                        <h3 class="spec-category-title">Control System</h3>
+                        <ul class="spec-list">
+                            <li class="spec-item">
+                                <span class="spec-name">Control Electronics</span>
+                                <span class="spec-value">Custom Cryo-CMOS ASIC</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Waveform Resolution</span>
+                                <span class="spec-value">14-bit, 1 GS/s</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Latency</span>
+                                <span class="spec-value">< 100 ns</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Channels per Qubit</span>
+                                <span class="spec-value">4 (XY, Z, Readout, Flux)</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-name">Real-time Feedback</span>
+                                <span class="spec-value">Mid-circuit Measurement</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" aria-labelledby="about-heading">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">Company</span>
+                <h2 id="about-heading" class="section-title">Advancing Humanity Through Quantum</h2>
+                <p class="section-description">
+                    Founded by physicists and engineers from leading research institutions, 
+                    Quantum First is dedicated to making quantum computing practical and accessible.
+                </p>
+            </header>
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            The quantum revolution isn't coming — it's here. But for too long, 
+                            the power of quantum computing has been locked behind institutional 
+                            walls, accessible only to a select few with specialized expertise.
+                        </p>
+                        <p>
+                            We founded Quantum First to change that. Our mission: democratize 
+                            quantum computing by building the tools, infrastructure, and 
+                            community that let every developer harness quantum mechanics 
+                            for real-world impact.
+                        </p>
+                        <p>
+                            From our labs in Cambridge to our cloud infrastructure spanning 
+                            three continents, we're pushing the boundaries of what's possible 
+                            — not just in qubit counts, but in usability, reliability, and 
+                            the problems we can solve together.
+                        </p>
+                    </div>
+                    <div class="about-values">
+                        <div class="value">
+                            <div class="value-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="value-text">
+                                <h4>Open Science</h4>
+                                <p>We publish our research, share our benchmarks, and contribute to open-source quantum software.</p>
+                            </div>
+                        </div>
+                        <div class="value">
+                            <div class="value-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <div class="value-text">
+                                <h4>Relentless Quality</h4>
+                                <p>Every qubit, every gate, every line of code meets the highest standards of excellence.</p>
+                            </div>
+                        </div>
+                        <div class="value">
+                            <div class="value-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <div class="value-text">
+                                <h4>Community First</h4>
+                                <p>We succeed when developers succeed. Our platform is built with and for the quantum community.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-metrics" aria-hidden="true">
+                    <div class="metric-card">
+                        <span class="metric-number" data-count="12">0</span>
+                        <span class="metric-label">Years of Research</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number" data-count="47">0</span>
+                        <span class="metric-label">Patents Filed</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number" data-count="200">0</span>
+                        <span class="metric-label">Team Members</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number" data-count="15">0</span>
+                        <span class="metric-label">Countries Served</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/CTA Section -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-content">
+                    <header class="section-header" style="text-align: center;">
+                        <span class="section-tag">Get Started</span>
+                        <h2 id="contact-heading" class="section-title">Ready to Go Quantum?</h2>
+                        <p class="section-description">
+                            Join thousands of developers building the quantum future. 
+                            Free tier includes 1000 shots/month on real hardware.
+                        </p>
+                    </header>
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" required autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="Alex Quantum" required autocomplete="name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="organization" class="form-label">Organization</label>
+                                <input type="text" id="organization" name="organization" class="form-input" placeholder="Quantum Labs Inc." autocomplete="organization">
+                            </div>
+                            <div class="form-group">
+                                <label for="use-case" class="form-label">Primary Use Case</label>
+                                <select id="use-case" name="use_case" class="form-input">
+                                    <option value="">Select a use case</option>
+                                    <option value="optimization">Optimization & Logistics</option>
+                                    <option value="chemistry">Quantum Chemistry & Materials</option>
+                                    <option value="finance">Financial Modeling</option>
+                                    <option value="ml">Quantum Machine Learning</option>
+                                    <option value="crypto">Cryptography</option>
+                                    <option value="research">Academic Research</option>
+                                    <option value="education">Education</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Request Access</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        <p class="form-note">No credit card required. We'll never share your email.</p>
+                    </form>
+                </div>
+                <div class="contact-decor" aria-hidden="true">
+                    <div class="decor-ring ring-1"></div>
+                    <div class="decor-ring ring-2"></div>
+                    <div class="decor-ring ring-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo" aria-label="Quantum First Home">
+                        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                            <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="16" cy="16" r="8" fill="currentColor"/>
+                            <circle cx="16" cy="16" r="3" fill="#0a0a0a"/>
+                        </svg>
+                        <span class="logo-text">Quantum First</span>
+                    </a>
+                    <p class="footer-tagline">Making quantum computing accessible to every developer.</p>
+                    <div class="social-links" role="list" aria-label="Social media links">
+                        <a href="#" class="social-link" aria-label="GitHub" role="listitem">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter" role="listitem">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn" role="listitem">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Discord" role="listitem">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.675 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.083.083 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 00.77-.43.076.076 0 00.02-.135 12.29 12.29 0 01-.863-5.29.077.077 0 01.077-.077h.08a.074.074 0 01.072.055 4.344 4.344 0 00-.09.64 3.88 3.88 0 001.28 1.55.077.077 0 01-.004.145 3.826 3.826 0 00-.164.52.076.076 0 01-.147.053.077.077 0 01-.078-.082 2.86 2.86 0 01-.341-1.07.077.077 0 00-.039-.12 2.52 2.52 0 00-3.282-.736.077.077 0 00-.081.085 1.94 1.94 0 00.56 1.76A7.8 7.8 0 009.02 24a.077.077 0 00.08-.05 7.8 7.8 0 002.581-.385.077.077 0 00-.004-.145 3.826 3.826 0 00-.164.52.076.076 0 01-.147.053.077.077 0 01-.078-.082 2.86 2.86 0 01-.341-1.07.077.077 0 00-.039-.12 2.52 2.52 0 00-3.282-.736.077.077 0 00-.081.085 1.94 1.94 0 00.56 1.76A7.8 7.8 0 009.02 24a.077.077 0 00.08-.05 7.8 7.8 0 002.581-.385.077.077 0 00-.004-.145c0-.37.184-.73.512-.982a16.8 16.8 0 001.03-1.13.077.077 0 01.058-.032h.08a.077.077 0 01.077.077c0 .74-.117 1.48-.341 2.167a.077.077 0 00.039.12 2.52 2.52 0 003.282.736.077.077 0 00.081-.085c-.18-1.013.283-2.06.935-2.81a.077.077 0 01.078-.004 3.52 3.52 0 011.1.21.076.076 0 01.06.135 13.56 13.56 0 00.77.43.078.078 0 00.084.028 19.9 19.9 0 005.993-3.03.083.083 0 00.031-.057c.418-4.477-.435-9.01-3.004-13.66a.061.061 0 00-.031-.027zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#technology">Technology</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">API Reference</a></li>
+                            <li><a href="#">Changelog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Community Forum</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Research Papers</a></li>
+                            <li><a href="#">Webinars</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Security</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Data Processing</a></li>
+                            <li><a href="#">Compliance</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 Quantum First. All rights reserved.</p>
+                <p class="footer-note">Quantum First is not affiliated with any government agency.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
