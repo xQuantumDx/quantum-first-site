@@ -448,6 +448,44 @@
     }
 
     // ==========================================================================
+    // Theme Toggle
+    // ==========================================================================
+    function initThemeToggle() {
+        const toggle = $('.theme-toggle');
+        if (!toggle) return;
+
+        // Get saved theme or default to dark
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        
+        // Apply initial theme
+        document.documentElement.setAttribute('data-theme', initialTheme);
+        toggle.setAttribute('aria-pressed', initialTheme === 'light');
+
+        toggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            toggle.setAttribute('aria-pressed', newTheme === 'light');
+            
+            // Trigger a custom event for other components to react
+            window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: newTheme } }));
+        });
+
+        // Listen for system theme changes (only if user hasn't set a preference)
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                const newTheme = e.matches ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                toggle.setAttribute('aria-pressed', newTheme === 'light');
+            }
+        });
+    }
+
+    // ==========================================================================
     // Initialize Everything
     // ==========================================================================
     function init() {
@@ -469,6 +507,7 @@
         }
         
         // Always run these
+        initThemeToggle();
         animateCounters();
         initScrollReveal();
         initNavScroll();
